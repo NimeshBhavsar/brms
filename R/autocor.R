@@ -73,7 +73,7 @@ cor_arma <- function(formula = ~1, p = 0, q = 0, r = 0, cov = FALSE) {
   p <- as_one_numeric(p)
   q <- as_one_numeric(q)
   cov <- as_one_logical(cov)
-  if ("r" %in% names(match.call())) {
+  if ("r" %in% names(match.call()) && is.call(match.call()[["r"]])) {
     warning2("The ARR structure is no longer supported and ignored.")
   }
   if (!(p >= 0 && p == round(p))) {
